@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>task one of cascode internship</title>
+    <style>
+
+        html,body{
+            display: grid;
+            height: 100%;
+            width: 100%;
+            place-items: center;
+            background-color:rgb(218, 176, 230);
+        }
+        .wrapper{
+            max-width: 420px;
+            border-style:groove;
+            background-color:whitesmoke;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+        } 
+        #submit{margin-top:30px;}
+        #para1{
+            max-width:600px;
+            border-style:groove; /*for getting a border */
+            border-radius:30px;
+            padding:20px; /*for having space around text*/
+        }
+    </style>
+    <script>
+        function validate(){
+            var x,y,z;
+            x=document.getElementById("fname");
+            y=document.getElementById("Email");
+            z=document.getElementById("phone");           
+            if(x.value==""|| y.value=="" || z.value==""){
+                alert("Please fill out all field");
+                return false;
+            }
+            var letters=/^[A-Za-z\s]+$/;
+            if(x.value.match(letters)){
+                return true;
+            }else{
+                alert("characters only in name field.");
+                return false;
+            }
+            var r1=document.getElementById('male').checked;
+            var r2=document.getElementById('female').checked;
+            var r3=document.getElementById('other').checked;
+            if(!r1 && !r2 && !r3){          
+                alert("please fill up Gender option");
+                return false;
+            }
+            var phno=/^\d{10}$/;
+            if(!z.value.match(phno)){
+                alert("invalid phone number");
+                return false;
+            }
+            return true;
+            
+        }     
+    </script>
+</head>
+<body> <!--style="text-align:center;"--> <!-- style="background-color:peru;> NOT WORK IN BODY TAG-->
+    
+    <div class="wrapper">
+    <form name="form1" action="actionTask1.php" onsubmit="return validate()" style="text-align:center;">
+        <h1 style>Sleep Survey</h1><br>
+        <p id="para1">This a Survey form is to know about individual's sleeping habits and causes for poor sleep. This helps us to understand the
+             sleeping patterns of a person, the reasons that influence sleeping habits, and the implications of certain activities that can lead to poor sleep or 
+             insomnia.
+        </p><br>
+        <p><label for="fname">1.Name</label></p>
+        <input type="text" id="fname" name="Name"><br> <!--id is unique title to that field particularly-->
+        <p><label for="Email">2. Email id</label></p>     <!--in backend we know its answer for email field by its 'name' -->
+        <input type="email" id="Email" name="email"><br> <!--value is for in backend ,the answer choosen will be shown by value field-->
+        <p><label for="phone">3. Phone number</label></p>
+        <input type="number" id="phone" name="phoneno"> <br> <!--input type for phone no. is tel-->
+        <p>4. Select your gender:</p>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br>
+        <p>5. Select your age:</p>
+        <input type="radio" id="age1" name="age" value="30">
+        <label for="age1">0 - 25</label><br>
+        <input type="radio" id="age2" name="age" value="60">
+        <label for="age2">25 - 50</label><br>
+        <input type="radio" id="age3" name="age" value="100">
+        <label for="age3">50 - 80</label><br>
+        <p>6. How often has poor sleep troubled you in the last month?</p>
+        <input type="radio" name="poor sleep" id="Always" value="Always">
+        <label for="Always">Always</label><br>
+        <input type="radio" name="poor sleep" id="Very Often" value="Very Often">
+        <label for="Very Often">Very Often</label><br>
+        <input type="radio" name="poor sleep" id="Sometimes" value="Sometimes">
+        <label for="Sometimes">Sometimes</label><br>
+        <input type="radio" name="poor sleep" id="Rarely" value="Rarely">
+        <label for="Rarely">Rarely</label><br>
+        <input type="radio" name="poor sleep" id="Never" value="Never">
+        <label for="Never">Never</label><br>
+        <p>7. How often do you feel sleepy in the day time while working?</p>
+        <input type="radio" name="daySleepy" id="Always" value="Always">
+        <label for="Always">Always</label><br>
+        <input type="radio" name="daySleepy" id="Very Often" value="Very Often">
+        <label for="Very Often">Very Often</label><br>
+        <input type="radio" name="daySleepy" id="Sometimes" value="Sometimes">
+        <label for="Sometimes">Sometimes</label><br>
+        <input type="radio" name="daySleepy" id="Rarely" value="Rarely">
+        <label for="Rarely">Rarely</label><br>
+        <input type="radio" name="daySleepy" id="Never" value="Never">
+        <label for="Never">Never</label><br>
+        <p>8. On an average, what time do you usually go to sleep at night?</p>
+        <input type="radio" name="sleeptime" id="bef9" value="bef9">
+        <label for="bef9">Before 9pm</label><br>
+        <input type="radio" name="sleeptime" id="10" value="10">
+        <label for="10">9pm-11pm</label><br>
+        <input type="radio" name="sleeptime" id="12" value="12">
+        <label for="12">11pm-1pm</label><br>
+        <input type="radio" name="sleeptime" id="2" value="2">
+        <label for="2">1pm-3pm</label><br>
+        <input type="radio" name="sleeptime" id="above" value="above">
+        <label for="above">Above</label><br>
+        <p>9. How long it takes you to fall asleep once you are in bed?</p>
+        <input type="radio" name="tfasleep" id="less15" value="less15">
+        <label for="less15">Less then 15 mins</label><br>
+        <input type="radio" name="tfasleep" id="2ndhalf" value="2ndhalf">
+        <label for="2ndhalf">15-30mins</label><br>
+        <input type="radio" name="tfasleep" id="3rdhalf" value="3rdhalf">
+        <label for="3rdhalf">31-45mins</label><br>
+        <input type="radio" name="tfasleep" id="4thhalf" value="4thhalf">
+        <label for="4thhalf">46-60mins</label><br>
+        <input type="radio" name="tfasleep" id="1>" value="1>">
+        <label for="1>">More than one hour</label><br>
+        <p>10. Do you take sleeping pills to fall asleep?</p>
+        <select id="pills" name="sleep pills">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        </select>
+        <br>
+        <label for="exercise">11. On a scale of 1 to 7, 7 being the each day of week and 0 means you do not exercise, how many days in a week you exercise?</label></br>
+        <input type="number" id="exercise" name="daysUexercise" min="0" max="7"><!--when exactno. value is imp,then input type taken can be "number"-->
+        </br>
+        <label for="range1">12. On a scale of 1 to 7, 7 being the highest, how exhausted do you feel in the morning?</label><br>
+        <input type="range" id="range1" name="morning exhau" min="1" max="7"></br>  <!--in range input type exact no. value not imp,its like slider control-->
+        </br>
+        <label for="nightshf">13. Do you work in night shift?</label>
+        <select id="nightshf" name="nightshift"></br>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        </select></br>
+        <p>14. In your opinion, how would you rate your quality of sleep?</p>
+        <input type="radio" name="sleepquality" id="vgood" value="vgood">
+        <label for="vgood">very good</label><br>
+        <input type="radio" name="sleepquality" id="good" value="good">
+        <label for="good">Good</label><br>
+        <input type="radio" name="sleepquality" id="avg" value="avg">
+        <label for="avg">Average</label><br>
+        <input type="radio" name="sleepquality" id="poor" value="poor">
+        <label for="poor">Poor</label><br>
+        <input type="radio" name="sleepquality" id="vpoor" value="vpoor">
+        <label for="vpoor">Very Poor</label><br>
+        <p>15. Do you have smoke,drink or any other addiction?</p> 
+        <input type="text" id="addiction" name="addictions"><br>       
+        <p>16. Do you have a family history of sleep disorders?</p>
+        <select id="diso-hist" name="family diso-hist"><br>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        </select><br><br>
+        <textarea name="feedb" placeholder="any other issue or any suggestion?" rows="10" cols="30"></textarea>
+        </br>
+        <br>
+        <input type="submit" id="submit" value="SUBMIT" > 
+    </form>
+    </div>   
+</body>
+</html>
